@@ -65,7 +65,11 @@ namespace StructureMap.Configuration.DSL
         /// <typeparam name="T"></typeparam>
         public void IncludeRegistry<T>() where T : Registry, new()
         {
-            _actions.Add(g => new T().ConfigurePluginGraph(g));
+            _actions.Add(g =>
+			{ 
+				var reg = new T();
+				reg.ConfigurePluginGraph(g);
+			});
         }
 
         /// <summary>
