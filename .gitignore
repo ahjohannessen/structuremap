@@ -11,7 +11,11 @@ obj
 _ReSharper*
 *.csproj.user
 *.resharper.user
+*.userprefs
 *.suo
 *.cache
+*.pidb
+
 TestResult.xml
 Source/CommonAssemblyInfo.cs
+*test-results/
