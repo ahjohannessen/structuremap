@@ -116,7 +116,7 @@ namespace StructureMap
 
             public static IEnumerable<Type> FindInterfacesThatClose(this Type pluggedType, Type templateType)
             {
-                return rawFindInterfacesThatCloses(pluggedType, templateType).Distinct();
+                return rawFindInterfacesThatCloses(pluggedType, templateType).Distinct().OrderBy(t => t.Name);
             }
 
             private static IEnumerable<Type> rawFindInterfacesThatCloses(Type pluggedType, Type templateType)
@@ -184,7 +184,7 @@ namespace StructureMap
 
             public static IEnumerable<Type> AllInterfaces(this Type type)
             {
-                foreach (Type @interface in type.GetInterfaces())
+                foreach (Type @interface in type.GetInterfaces().OrderBy(i => i.Name))
                 {
                     yield return @interface;
                 }
